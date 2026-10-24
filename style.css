@@ -1,7 +1,8 @@
 body {
     background: whitesmoke;
-    color: #40536b;    
+    color: #000000;    
     font-family: Arial, Helvetica, sans-serif;
+    padding-bottom: 110px;
 }
 * {
     box-sizing: border-box;
@@ -11,33 +12,72 @@ body {
 .navbar {
     width: min(1150px,calc(100% - 40px));
     background: whitesmoke;
-    box-shadow: 8px 8px 18px white, -8px -8px 18px #fff;
+    box-shadow: 8px 8px 40px gray, -8px -8px 18px #fff;
     margin: 25px auto;
     padding: 16px 22px;
     align-items: center;
     justify-content: space-between;
-    border-radius: 18px;
+    border-radius: 40px;
     display: flex;
 }
 
+#dark {
+    background: rgb(0, 0, 0);
+}
+
 .logo {
-    color: gray;
+    color: #000000;
     font-size: 21px;
 }
 
 nav {
     display: flex;
-    gap: 32px;
+    gap: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
 }
 
 nav button{
-    color: gray;
+    color: #ffffff;
     font-size: 15px;
     transition: .3s;
+    flex: 1;
+    border: none;  
+    min-height: 44px;
+    background-color: black;
+    border-radius: 20px;
 }
+
+nav button.active {
+       background-color: rgb(255, 255, 255);
+       color: rgb(3, 2, 2);
+       box-shadow: 8px 8px 18px gray inset, -8px -8px 18px #fff inset;
+}
+
 nav button:hover {
     color: darkblue;
     transform: translateY(-3px);
 }
 
+section {
+    display: none;
+}
 
+section.active {
+    display: block;
+}
+
+@media (min-width: 768px) {
+   nav {
+    position: static;
+   }
+}
+
+main {
+    padding: 20px;
+}
