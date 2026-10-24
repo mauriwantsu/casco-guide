@@ -1,5 +1,1 @@
-var print = {
-    print: "El Faro is alive"
-}
-
-console.log(print)
+console.log("El Faro is alive")
