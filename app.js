@@ -1,13 +1,13 @@
 const buttons = document.querySelectorAll('.btn')
 
 for (const button of buttons) {
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function (event) {
         const active = document.querySelector('.btn.active')
         if (active) {
-        active.classList.remove('active');
-    }
+            active.classList.remove('active');
+        }
         button.classList.add("active");
-        
+
         const target = button.dataset.tab;
 
         const page = document.querySelector('.content.active');
@@ -17,40 +17,33 @@ for (const button of buttons) {
         if (targetPage) {
             targetPage.classList.add('active');
         }
+    });
+}
 
 
-        });
-        
- }
+const today = new Date().getDay();
 
- const count = places.length;
-    console.log(`First place: ${places[0].name}`);
-    console.log(`Places: ${count}`);
-    
-    const today = new Date().getDay();
-
-    const hoursToday = places[0].hours[today];
-
-    if (hoursToday.open) {
-        console.log(`Today (${hoursToday.day}) ${places[0].name} opens from: ${hoursToday.start} to ${hoursToday.end}`)
-    }
-    else {
-        console.log(`${places[0].name} is closed today`)
-    }
+let cards = '';
 
 for (const place of places) {
+    const hoursToday = place.hours[today];
+    let textHours = ''
 
-    const days = place.hours;
-
-    for (const day of days) {
-        if (!day.open) {
-            console.log(`${place.name} is closed on ${day.day}`)
-        }
-        else if (day.end < day.start) {
-            console.log(` Note: ${place.name} closes ${day.end} on ${day.day}`)
-        }
-        else {
-            console.log(`${place.name} normal hours: ${day.start} to ${day.end}`)
-        }
+    if (hoursToday && hoursToday.open) {
+        textHours = `Open today: ${hoursToday.start} to ${hoursToday.end}`
     }
+    else {
+        textHours = 'Today: CLOSED';
+    }
+
+    cards += `
+    <article class="card">
+        <h3>${place.name}</h3>
+        <p><strong>Categories:</strong> ${place.category.join(', ')}</p>
+        <p>${place.description.en}</p>
+        <p class="hours">${textHours}</p>
+    </article>
+    `;
 }
+
+document.getElementById('places-list').innerHTML = cards;
