@@ -15,7 +15,7 @@ const places = [
         whatsapp: "50763945350",
         instagram: "@la.pinchecantina",
         description: {en: "A place to sing karaoke", es: "Un lugar para cantar karaoke"},
-        image: "images/casco-antiguo.jpg",
+        image: "images/casco-antiguo.webp",
         mapsURL: "https://maps.app.goo.gl/dbC1UUsfApo5dCyEA",
         
     },

@@ -37,25 +37,49 @@ for (const categoryTarget of myCategories) {
 
             const hoursToday = place.hours[today];
             let textHours = '';
+            let statusText = '';
 
             if (hoursToday && hoursToday.open) {
-                textHours = `Open: ${hoursToday.start} to ${hoursToday.end}`;
+                statusText = `Open`;
+                textHours = `${hoursToday.start} - ${hoursToday.end}`;
             }
 
             else {
-                textHours = 'Today: CLOSED';
+                statusText = `Closed`
+                textHours = 'Closed today';
+            }
+
+            let labels = "";
+            place.categories.forEach(category => {
+                labels += `<span class="tag">${category}</span>`;
+            });
+
+            let map = "";
+            if (place.mapsURL !== "") {
+                map = `<a target="_blank" class="maps" href="${place.mapsURL}" rel="noopener">Get directions</a>`;
             }
 
             cards += `
         <article class="card">
-            <h4>${place.name}</h4>
-            <p><strong>Categories:</strong> ${place.categories.join(', ')}</p>
-            <p>${place.description.en}</p>
-            <p class="hours">${textHours}</p>
+            <div class="card-photo">
+                <span class="card-hours">${textHours}</span>
+                <img src="${place.image}" alt="casco antiguo" loading="lazy">
+            </div>
+            <div class="card-header">
+                <h4>${place.name}</h4>
+                <span class="status">${statusText}</span>
+            </div>
+            <p class="card-desc">${place.description.en}</p>
+            <div class="card-tags">${labels}</div>
+            <div class="card-actions">
+                ${map}
+                <a href="https://wa.me/${place.whatsapp}" target="_blank" rel="noopener">Whatsapp</a>
+            
         </article>
         `;
+            
         }
     }
 }
 
-document.getElementById('places-list').innerHTML = cards;
+    document.getElementById('places-list').innerHTML = cards;
