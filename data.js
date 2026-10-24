@@ -2,7 +2,7 @@ const places = [
     {
         id: "la-pinche", 
         name: "La Pinche Cantina", 
-        category: ["Restaurant", "Bar"],
+        categories: ["Restaurant", "Bar"],
         hours: [
             { day: "Sunday", open: true, start: "12:00", end: "03:00"},
             { day: "Monday", open: true, start: "12:00", end: "03:00"},
@@ -20,7 +20,7 @@ const places = [
     {
         id: "tantalo", 
         name: "Tantalo: Rooftop Bar", 
-        category: ["Restaurant", "Bar"],
+        categories: ["Restaurant", "Bar"],
         hours: [
             { day: "Sunday", open: true, start: "12:00", end: "02:00"},
             { day: "Monday", open: true, start: "12:00", end: "02:00"},
@@ -38,7 +38,7 @@ const places = [
     {
         id: "oku", 
         name: "Oku", 
-        category: ["Restaurant"],
+        categories: ["Restaurant"],
         hours: [
             { day: "Sunday", open: true, start: "14:00", end: "00:00"},
             { day: "Monday", open: true, start: "17:00", end: "00:00"},
@@ -56,7 +56,7 @@ const places = [
     {
         id: "catch", 
         name: "Catch", 
-        category: ["Restaurant", "Bar"],
+        categories: ["Restaurant", "Bar"],
         hours: [
             { day: "Sunday", open: true, start: "14:00", end: "00:00"},
             { day: "Monday", open: true, start: "17:00", end: "00:00"},
@@ -74,7 +74,7 @@ const places = [
     {
         id: "salty-sisters", 
         name: "Salty Sisters", 
-        category: ["Restaurant"],
+        categories: ["Restaurant"],
         hours: [
             { day: "Sunday", open: false },
             { day: "Monday", open: true, start: "12:00", end: "22:00"},
@@ -125,3 +125,6 @@ const events = [
     },
 ]
 
+const myCategories = [
+    "Bar", "Restaurant", "Nightclub", "Rooftop", "Coffee Shop", "Museum", "Store"
+]

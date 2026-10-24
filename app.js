@@ -20,30 +20,42 @@ for (const button of buttons) {
     });
 }
 
-
+let cards = '';
 const today = new Date().getDay();
 
-let cards = '';
+for (const categoryTarget of myCategories) {
 
-for (const place of places) {
-    const hoursToday = place.hours[today];
-    let textHours = ''
+    let titleAdded = false;
 
-    if (hoursToday && hoursToday.open) {
-        textHours = `Open today: ${hoursToday.start} to ${hoursToday.end}`
+    for (const place of places) {
+        if (place.categories.includes(categoryTarget)) {
+
+            if (titleAdded === false) {
+                cards += `<h3 class="category-title">${categoryTarget}s</h3>`;
+                titleAdded = true;
+            }
+
+            const hoursToday = place.hours[today];
+            let textHours = '';
+
+            if (hoursToday && hoursToday.open) {
+                textHours = `Open: ${hoursToday.start} to ${hoursToday.end}`;
+            }
+
+            else {
+                textHours = 'Today: CLOSED';
+            }
+
+            cards += `
+        <article class="card">
+            <h4>${place.name}</h4>
+            <p><strong>Categories:</strong> ${place.categories.join(', ')}</p>
+            <p>${place.description.en}</p>
+            <p class="hours">${textHours}</p>
+        </article>
+        `;
+        }
     }
-    else {
-        textHours = 'Today: CLOSED';
-    }
-
-    cards += `
-    <article class="card">
-        <h3>${place.name}</h3>
-        <p><strong>Categories:</strong> ${place.category.join(', ')}</p>
-        <p>${place.description.en}</p>
-        <p class="hours">${textHours}</p>
-    </article>
-    `;
 }
 
 document.getElementById('places-list').innerHTML = cards;
