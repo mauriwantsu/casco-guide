@@ -1,5 +1,4 @@
 const buttons = document.querySelectorAll('.btn')
-const sections = document.querySelectorAll('.content')
 
 for (const button of buttons) {
     button.addEventListener('click', function(event) {
