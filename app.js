@@ -1,1 +1,1 @@
-console.log("El Faro is alive")
+console.log("El Faro is alive");
