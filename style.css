@@ -1,8 +1,12 @@
 body {
-    background: whitesmoke;
+    background: rgb(255, 255, 255);
     color: #000000;    
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 110px;
+    margin: 0;
+    padding: 0%;
+    width: 100%;
+    overflow-x: hidden;
 }
 * {
     box-sizing: border-box;
@@ -12,7 +16,6 @@ body {
 .navbar {
     width: min(1150px,calc(100% - 40px));
     background: whitesmoke;
-    box-shadow: 8px 8px 40px gray, -8px -8px 18px #fff;
     margin: 25px auto;
     padding: 16px 22px;
     align-items: center;
@@ -67,6 +70,12 @@ section {
    nav {
     position: static;
    }
+   #places-list {
+    width: 100vw;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
+   }
 }
 
 .content.active {
@@ -76,6 +85,8 @@ section {
 
 main {
     padding: 20px;
+    width: 100%;
+    position: center;
 }
 
 @keyframes fadeIn {
@@ -89,3 +100,26 @@ main {
     }
 }
 
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 4px 4px 14px rgb(150, 150, 150), -4px -4px 14px rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    margin: 9px auto;
+    text-align: left;
+}
+
+#places-list {
+    gap: 10px 20px;
+}
+
+.category-title {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 24px;
+    font-size: 20px;
+    font-weight: bold;
+
+}
