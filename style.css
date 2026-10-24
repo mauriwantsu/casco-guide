@@ -21,7 +21,7 @@ body {
     display: flex;
 }
 
-#dark {
+.dark {
     background: rgb(0, 0, 0);
 }
 
@@ -45,7 +45,7 @@ nav {
 nav button{
     color: #ffffff;
     font-size: 15px;
-    transition: .3s;
+    transition: .25s;
     flex: 1;
     border: none;  
     min-height: 44px;
@@ -55,13 +55,8 @@ nav button{
 
 nav button.active {
        background-color: rgb(255, 255, 255);
-       color: rgb(3, 2, 2);
+       color: rgb(0, 0, 0);
        box-shadow: 8px 8px 18px gray inset, -8px -8px 18px #fff inset;
-}
-
-nav button:hover {
-    color: darkblue;
-    transform: translateY(-3px);
 }
 
 section {
