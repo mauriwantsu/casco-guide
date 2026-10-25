@@ -6,7 +6,6 @@ body {
     margin: 0;
     padding: 0%;
     width: 100%;
-    overflow-x: hidden;
 }
 * {
     box-sizing: border-box;
@@ -43,6 +42,7 @@ nav {
     margin: auto;
     align-items: center;
     justify-content: space-between;
+    z-index: 10;
 }
 
 nav button{
@@ -84,9 +84,9 @@ section {
 }
 
 main {
+    margin: 10px auto;
     padding: 20px;
     width: 100%;
-    position: center;
 }
 
 @keyframes fadeIn {
@@ -109,11 +109,6 @@ main {
     margin: 9px auto;
     text-align: left;
 }
-
-#places-list {
-    gap: 10px 20px;
-}
-
 .category-title {
     display: block;
     width: 100%;
@@ -121,5 +116,71 @@ main {
     margin-top: 24px;
     font-size: 20px;
     font-weight: bold;
+}
+.card-photo img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+}
 
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+span.status {
+    background-color: #4e8397;
+    color: white;
+    border-radius: 20px;
+    padding: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.card-actions a {
+    color: #ffffff;
+    flex: 1;
+    min-height: 44px;
+    background-color: black;
+    border-radius: 30px;
+    display: flex;           
+    gap: 20px;              
+    padding: 18px 0;     
+    text-align: center;     
+    text-decoration: none;
+    flex-direction: column;
+}
+.card-photo {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-hours {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;                   
+    padding: 5px 12px;
+    border-bottom-right-radius: 12px; 
+    font-size: 13px;  
+}
+
+.card-hours::before,
+.card-hours::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-top-left-radius: 12px;
+    box-shadow: -6px -6px 0 6px #fff;
+}
+
+.card-hours::before {   
+    top: 0;
+    left: 100%;
+}
+
+.card-hours::after {   
+    top: 100%;
+    left: 0;
 }

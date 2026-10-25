@@ -63,7 +63,7 @@ for (const categoryTarget of myCategories) {
         <article class="card">
             <div class="card-photo">
                 <span class="card-hours">${textHours}</span>
-                <img src="${place.image}" alt="casco antiguo" loading="lazy">
+                <img src="${place.image}" alt="${place.name}" loading="lazy">
             </div>
             <div class="card-header">
                 <h4>${place.name}</h4>
@@ -71,10 +71,13 @@ for (const categoryTarget of myCategories) {
             </div>
             <p class="card-desc">${place.description.en}</p>
             <div class="card-tags">${labels}</div>
-            <div class="card-actions">
-                ${map}
-                <a href="https://wa.me/${place.whatsapp}" target="_blank" rel="noopener">Whatsapp</a>
-            
+            <button class="more-btn">More Info</button>
+            <div class="card-details">
+                <div class="card-actions">
+                    ${map}
+                    <a href="https://wa.me/${place.whatsapp}" target="_blank" rel="noopener">Whatsapp</a>
+                </div>
+            </div>
         </article>
         `;
             

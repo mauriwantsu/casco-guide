@@ -35,7 +35,7 @@ const places = [
         whatsapp: "50763945350",
         instagram: "@tantalohotel",
         description: {en: "A place to dance", es: "Un lugar para bailar"},
-        image: "images/casco-antiguo.jpg",
+        image: "images/casco-antiguo.webp",
         mapsURL: "",
         
     },
@@ -55,7 +55,7 @@ const places = [
         whatsapp: "50769444987",
         instagram: "@okupanama",
         description: {en: "A place to eat good sushi", es: "Un lugar para comer buen sushi"},
-        image: "images/casco-antiguo.jpg",
+        image: "images/casco-antiguo.webp",
         mapsURL: "",
         
     },
@@ -75,7 +75,7 @@ const places = [
         whatsapp: "50766948641",
         instagram: "@catchpanama",
         description: {en: "A place to eat good sushi", es: "Un lugar para comer buen sushi"},
-        image: "images/casco-antiguo.jpg",
+        image: "images/casco-antiguo.webp",
         mapsURL: "",
         
     },
@@ -95,7 +95,7 @@ const places = [
         whatsapp: "50765948852",
         instagram: "@saltysisterspanama",
         description: {en: "Eat Pinsa not Pizza", es: "Come Pinsa no Pizza"},
-        image: "images/casco-antiguo.jpg",
+        image: "images/casco-antiguo.webp",
         mapsURL: "",
     },
     
