@@ -2,7 +2,7 @@ const places = [
     {
         id: "la-pinche", 
         name: "La Pinche Cantina", 
-        categories: ["Restaurant", "Bar"],
+        categories: ["Restaurant", "Bar", "Karaoke"],
         hours: [
             { day: "Sunday", open: true, start: "12:00", end: "03:00"},
             { day: "Monday", open: true, start: "12:00", end: "03:00"},
@@ -14,8 +14,8 @@ const places = [
         ],
         whatsapp: "50763945350",
         instagram: "@la.pinchecantina",
-        description: {en: "A place to sing karaoke", es: "Un lugar para cantar karaoke"},
-        image: "images/casco-antiguo.webp",
+        description: {en: "Here we sing, drink, and eat well. La Pinche Cantina was born for those who aren't afraid of spicy food, well-poured tequila, or the karaoke mic. We're a Mexican cantina with character, where nights are lived unfiltered and every visit becomes a story.", es: "Un lugar para cantar karaoke"},
+        image: "images/pinche-cantina.webp",
         mapsURL: "https://maps.app.goo.gl/dbC1UUsfApo5dCyEA",
         
     },
