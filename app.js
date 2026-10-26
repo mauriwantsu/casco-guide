@@ -86,3 +86,18 @@ for (const categoryTarget of myCategories) {
 }
 
     document.getElementById('places-list').innerHTML = cards;
+
+const more = document.querySelectorAll('.more-btn');
+    more.forEach((more, index) => {
+        more.addEventListener('click', () => {
+            const info = more.closest('.card');
+            info.classList.toggle('expanded');
+
+            if (info.classList.contains('expanded')) {
+                more.textContent = 'Less info';
+            } else {
+                more.textContent = 'More info';
+            }
+        
+        });
+    });

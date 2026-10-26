@@ -225,6 +225,9 @@ span.status {
     -webkit-line-clamp: 3;
     overflow: hidden;
 }
+.card.expanded .card-desc {
+    -webkit-line-clamp: unset;
+}
 .visually-hidden {
     position: absolute;
     width: 1px;
