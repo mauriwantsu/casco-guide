@@ -1,14 +1,28 @@
+:root {
+    --bg: #F5EBDD;         /* Warm Ivory: page background */
+    --grid: #EADDCB;       /* grid lines */
+    --surface: #FFF9F0;    /* Soft Cream: cards, header, hours tab */
+    --primary: #263E45;    /* Deep Teal: tab bar, titles, More info */
+    --text: #263E45;
+    --text-soft: #55666b;  /* descriptions */
+    --action: #C56D50;     /* Terracotta: Directions, WhatsApp */
+    --accent: #D9B86C;     /* Muted Gold: small accents */
+    --tag-bg: #E4EAE5;     /* light Sage */
+    --tag-text: #3F5245;
+    --open: #1f7a3d;       /* status: open */
+}
+
 body {
-    background: #111;
-    color: #f2f2f2;    
+    background: var(--bg);
+    color: var(--text);    
     font-family: Arial, Helvetica, sans-serif;
     padding-bottom: 110px;
     margin: 0;
     padding: 0%;
     width: 100%;
     background-image:
-        linear-gradient(to right, #1d1d1d 1px, transparent 1px),
-        linear-gradient(to bottom, #1d1d1d 1px, transparent 1px);
+        linear-gradient(to right, var(--grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
     background-size: 20px 20px;
 }
 * {
@@ -18,19 +32,19 @@ body {
 
 .navbar {
     width: min(1150px,calc(100% - 40px));
-    background: #1c1c1e;
+    background: var(--surface);
     margin: 25px auto;
     padding: 16px 22px;
     align-items: center;
     justify-content: space-between;
     border-radius: 40px;
     display: flex;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 14px rgba(38, 62, 69, 0.15);
 
 }
 
 .dark {
-    background: #f2f2f2;
+    background: var(--primary);
 }
 
 .logo {
@@ -51,20 +65,20 @@ nav {
 }
 
 nav button{
-    color: #111;
+    color: var(--surface);
     font-size: 15px;
     transition: .25s;
     flex: 1;
     border: none;  
     min-height: 44px;
-    background-color: #f2f2f2;
+    background-color: var(--primary);
     border-radius: 20px;
 }
 
 nav button.active {
-       background-color: #111;
-       color: #fff;
-       box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.6);
+       background-color: var(--surface);
+       color: var(--primary);
+       box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 section {
@@ -106,10 +120,10 @@ main {
 }
 
 .card {
-    background-color: #1c1c1e;
+    background-color: var(--surface);
     border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-    color: #f2f2f2;
+    box-shadow: 0 4px 16px rgba(38, 62, 69, 0.14);
+    color: var(--text);
     padding: 10px;
     margin: 9px auto;
     text-align: left;
@@ -118,8 +132,10 @@ main {
     gap: 10px;
 }
 .category-title {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    color: var(--primary);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
     box-sizing: border-box;
     margin-top: 24px;
     font-size: 20px;
@@ -140,8 +156,8 @@ main {
     font-size: large;
 }
 span.status {
-    background-color: #1f7a3d;
-    color: #06240f;
+    background-color: var(--open);
+    color: #fff;
     border-radius: 20px;
     padding: 3px;
     padding-left: 8px;
@@ -149,18 +165,21 @@ span.status {
     font-size: 14px;
     font-weight: bold;
 }
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
 .card-actions a {
-    color: #ffffff;
+    color: #fff;
     flex: 1;
     min-height: 44px;
-    background-color: #1c1c1e;
+    background-color: var(--action);
     border-radius: 30px;
-    display: flex;           
-    gap: 20px;              
-    padding: 18px 0;     
-    text-align: center;     
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    flex-direction: column;
 }
 .card-photo {
     position: relative;
@@ -171,7 +190,7 @@ span.status {
     position: absolute;
     top: 0;
     left: 0;
-    background: #1c1c1e;                   
+    background: var(--surface);
     padding: 5px 12px;
     border-bottom-right-radius: 12px; 
     font-size: 13px;  
@@ -184,7 +203,7 @@ span.status {
     width: 12px;
     height: 12px;
     border-top-left-radius: 12px;
-    box-shadow: -6px -6px 0 6px #1c1c1e;
+    box-shadow: -6px -6px 0 6px var(--surface);
 }
 
 .card-hours::before {   
@@ -202,13 +221,13 @@ span.status {
     flex-wrap: wrap;
 }
 .tag {
-    background-color: #2c2c2e;
+    background-color: var(--tag-bg);
     font-size: 12px;
     padding: 2px;
     border-radius: 20px;
     padding-left: 8px;
     padding-right: 8px;
-    color: #e0e0e0;
+    color: var(--tag-text);
 }
 .card-details {
     display: none;
@@ -219,7 +238,7 @@ span.status {
 .card-desc {
     line-height: 1.5;
     font-size: 13px;
-    color: #b8b8b8;
+    color: var(--text-soft);
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -243,8 +262,8 @@ span.status {
     margin-top: 0;
 }
 .more-btn {
-    background-color: #f2f2f2;
-    color: #111;
+    background-color: var(--primary);
+    color: #fff;
     border: none;
     border-radius: 30px;
     min-height: 44px;
