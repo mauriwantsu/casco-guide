@@ -24,10 +24,18 @@ function getStatus(place) {
 
         if (closeMinutes > openMinutes) {
             if (nowMinutes >= openMinutes && nowMinutes < closeMinutes) {
+                const minutesLeft = closeMinutes - nowMinutes;
+                if (minutesLeft <= 60) {
+                    return "closing";
+                }
                 return "open";
             }
         }
         else if (nowMinutes >= openMinutes) {
+            const minutesLeft = closeMinutes + 1440 - nowMinutes;
+            if (minutesLeft <= 60) {
+                return "closing";
+            }
             return "open";
         }
     }
@@ -40,6 +48,10 @@ function getStatus(place) {
         const yClose = toMinutes(yesterday.end);
 
         if (yClose < yOpen && nowMinutes < yClose) {
+            const minutesLeft = yClose - nowMinutes;
+            if (minutesLeft <= 60) {
+                return "closing";
+            }
             return "open";
         }
     }
@@ -99,8 +111,11 @@ for (const categoryTarget of myCategories) {
             if (status === "open") {
                 statusText = 'Open';
             }
+            else if (status === "closing") {
+                statusText = 'Closing soon';
+            }
             else {
-                statusText = 'Closed'
+                statusText = "Closed";
             }
 
             let labels = "";
@@ -114,7 +129,7 @@ for (const categoryTarget of myCategories) {
             }
 
             cards += `
-        <article class="card">
+        <article class="card ${status}">
             <div class="card-photo">
                 <span class="card-hours">${textHours}</span>
                 <img src="${place.image}" alt="${place.name}" loading="lazy">

@@ -156,8 +156,6 @@ main {
     font-size: large;
 }
 span.status {
-    background-color: var(--open);
-    color: #fff;
     border-radius: 20px;
     padding: 3px;
     padding-left: 8px;
@@ -184,6 +182,7 @@ span.status {
 .card-photo {
     position: relative;
     overflow: hidden;
+    transition: filter 0.4s;
 }
 
 .card-hours {
@@ -268,4 +267,19 @@ span.status {
     border-radius: 30px;
     min-height: 44px;
     font-size: 15px;
+}
+.status.open {
+    background-color: var(--open);
+    color: #fff;
+}
+.status.closing {
+    background-color: #8a5a00;
+    color: #fbefd6;
+}
+.status.closed {
+    background-color: #9b2226;
+    color: #e8e8e8;
+}
+.card.closed .card-photo img{
+    filter: grayscale(1);
 }
