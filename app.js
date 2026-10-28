@@ -12,20 +12,40 @@ function toMinutes(text) {
     const hour = Number(text[0]);
     const minute = Number(text[1]);
     const currentTime = hour * 60 + minute;
-    return currentTime;  
+    return currentTime;
 }
 
-    function isOpenNow(place) {
-        const day = place.hours[today];
-        if (day.open === false || !day) {
-            return;
-        }
+function isOpenNow(place) {
+    const day = place.hours[today];
+    if (day && day.open === true) {
 
         const openMinutes = toMinutes(day.start);
         const closeMinutes = toMinutes(day.end);
 
-        return openMinutes <= nowMinutes && nowMinutes < closeMinutes
-    };
+        if (closeMinutes > openMinutes) {
+            if (nowMinutes >= openMinutes && nowMinutes < closeMinutes) {
+                return true;
+            }
+        }
+        else if (nowMinutes >= openMinutes) {
+            return true;
+        }
+    }
+
+    const yesterdayIndex = (today + 6) % 7;
+    const yesterday = place.hours[yesterdayIndex];
+
+    if (yesterday && yesterday.open === true) {
+        const yOpen = toMinutes(yesterday.start);
+        const yClose = toMinutes(yesterday.end);
+
+        if (yClose < yOpen && nowMinutes < yClose) {
+            return true;
+        }
+    }
+
+    return false; 
+};
 
 
 for (const button of buttons) {
@@ -76,7 +96,7 @@ for (const categoryTarget of myCategories) {
             if (isOpenNow(place)) {
                 statusText = 'Open';
             }
-            else { 
+            else {
                 statusText = 'Closed'
             }
 
@@ -111,27 +131,27 @@ for (const categoryTarget of myCategories) {
             </div>
         </article>
         `;
-            
+
         }
     }
 }
 
-    document.getElementById('places-list').innerHTML = cards;
+document.getElementById('places-list').innerHTML = cards;
 
 const more = document.querySelectorAll('.more-btn');
-    more.forEach((more, index) => {
-        more.addEventListener('click', () => {
-            const info = more.closest('.card');
-            info.classList.toggle('expanded');
+more.forEach((more, index) => {
+    more.addEventListener('click', () => {
+        const info = more.closest('.card');
+        info.classList.toggle('expanded');
 
-            if (info.classList.contains('expanded')) {
-                more.textContent = 'Less info';
-            } else {
-                more.textContent = 'More info';
-            }
-        
-        });
+        if (info.classList.contains('expanded')) {
+            more.textContent = 'Less info';
+        } else {
+            more.textContent = 'More info';
+        }
+
     });
+});
 
 
 
