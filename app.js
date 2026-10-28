@@ -1,5 +1,33 @@
 const buttons = document.querySelectorAll('.btn')
 
+const now = new Date();
+const today = new Date().getDay();
+const currentHour = now.getHours();
+const currentMinute = now.getMinutes();
+const nowMinutes = currentHour * 60 + currentMinute
+
+
+function toMinutes(text) {
+    text = text.split(":");
+    const hour = Number(text[0]);
+    const minute = Number(text[1]);
+    const currentTime = hour * 60 + minute;
+    return currentTime;  
+}
+
+    function isOpenNow(place) {
+        const day = place.hours[today];
+        if (day.open === false || !day) {
+            return;
+        }
+
+        const openMinutes = toMinutes(day.start);
+        const closeMinutes = toMinutes(day.end);
+
+        return openMinutes <= nowMinutes && nowMinutes < closeMinutes
+    };
+
+
 for (const button of buttons) {
     button.addEventListener('click', function (event) {
         const active = document.querySelector('.btn.active')
@@ -21,7 +49,6 @@ for (const button of buttons) {
 }
 
 let cards = '';
-const today = new Date().getDay();
 
 for (const categoryTarget of myCategories) {
 
@@ -40,13 +67,17 @@ for (const categoryTarget of myCategories) {
             let statusText = '';
 
             if (hoursToday && hoursToday.open) {
-                statusText = `Open`;
                 textHours = `${hoursToday.start} - ${hoursToday.end}`;
             }
 
             else {
-                statusText = `Closed`
                 textHours = 'Closed today';
+            }
+            if (isOpenNow(place)) {
+                statusText = 'Open';
+            }
+            else { 
+                statusText = 'Closed'
             }
 
             let labels = "";
@@ -101,3 +132,10 @@ const more = document.querySelectorAll('.more-btn');
         
         });
     });
+
+
+
+
+
+
+
