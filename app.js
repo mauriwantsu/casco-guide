@@ -15,7 +15,7 @@ function toMinutes(text) {
     return currentTime;
 }
 
-function isOpenNow(place) {
+function getStatus(place) {
     const day = place.hours[today];
     if (day && day.open === true) {
 
@@ -24,11 +24,11 @@ function isOpenNow(place) {
 
         if (closeMinutes > openMinutes) {
             if (nowMinutes >= openMinutes && nowMinutes < closeMinutes) {
-                return true;
+                return "open";
             }
         }
         else if (nowMinutes >= openMinutes) {
-            return true;
+            return "open";
         }
     }
 
@@ -40,11 +40,11 @@ function isOpenNow(place) {
         const yClose = toMinutes(yesterday.end);
 
         if (yClose < yOpen && nowMinutes < yClose) {
-            return true;
+            return "open";
         }
     }
 
-    return false; 
+    return "closed"; 
 };
 
 
@@ -93,7 +93,10 @@ for (const categoryTarget of myCategories) {
             else {
                 textHours = 'Closed today';
             }
-            if (isOpenNow(place)) {
+
+            const status = getStatus(place)
+
+            if (status === "open") {
                 statusText = 'Open';
             }
             else {
@@ -118,7 +121,7 @@ for (const categoryTarget of myCategories) {
             </div>
             <div class="card-header">
                 <h4>${place.name}</h4>
-                <span class="status">${statusText}</span>
+                <span class="status ${status}" >${statusText}</span>
             </div>
             <p class="card-desc">${place.description.en}</p>
             <div class="card-tags">${labels}</div>
